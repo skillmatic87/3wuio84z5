@@ -18,8 +18,6 @@ require 'konto.class.php';
 $Konto1 = new Konto(123,5000,'Lina Petzold');
 $Konto2 = new Konto(456,1250,'Karsten Schlütter');
 
-var_dump($Kontostand);
-
 abbuchen(500)->$Konto1;
 einzahlen(1000)->$Konto2;
 einzahlen(250)->$Konto1;
