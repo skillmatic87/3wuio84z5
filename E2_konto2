@@ -1,0 +1,14 @@
+<?php
+require 'konto.class.git.php';
+
+
+$Konto1 = new Konto(123,5000,'Lina Petzold');
+$Konto2 = new Konto(456,1250,'Karsten Schlütter');
+
+einzahlen(1000, $Konto2);
+abbuchen(500, $Konto1);
+
+einzahlen(250, $Konto1);
+abbuchen(10000, $Konto2);
+    
+?>
