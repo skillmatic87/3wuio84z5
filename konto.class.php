@@ -15,14 +15,14 @@ class Konto {
         echo "<p>Kontostand: $this->Kontostand</p>";
     }
    
-    public function getKontonummer($Kontonummer){
-        return $this->$Kontonummer;
+    public function getKontonummer(){
+        return $this->Kontonummer;
     }
-    public function getKontostand($Kontostand){
-        return $this->$Kontostand;
+    public function getKontostand(){
+        return $this->Kontostand;
     }
-    public function getKontoinhaber($Kontoinhaber){
-        return $this->$Kontoinhaber;
+    public function getKontoinhaber(){
+        return $this->Kontoinhaber;
     }
     
 }
