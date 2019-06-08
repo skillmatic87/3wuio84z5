@@ -1,0 +1,42 @@
+<?php
+declare(strict_types=1);
+class Konto {
+    private $Kontonummer;
+    private $Kontostand;
+    private $Kontoinhaber;
+    
+    public function __construct(int $Kontonummer, int $Kontostand, string $Kontoinhaber) {
+        $this->Kontonummer = $Kontonummer;
+        $this->Kontostand = $Kontostand;
+        $this->Kontoinhaber = $Kontoinhaber;
+        
+        echo "<p>Konto: $this->Kontonummer wurde angelegt.</p>";
+        echo "<p>Kontoinhaber: $this->Kontoinhaber";
+        echo "<p>Kontostand: $this->Kontostand</p>";
+    }
+   
+    public function getKontonummer(){
+        return $this->Kontonummer;
+    }
+    public function getKontostand(){
+        return $this->Kontostand;
+    }
+    public function getKontoinhaber(){
+        return $this->Kontoinhaber;
+    }
+    function abbuchen(int $Betrag, Konto $konto) {
+        if ($konto->Kontostand - $Betrag <0) 
+        { echo "Abzubuchender Betrag überschreitet Kontostand, Buchung wurde nicht ausgeführt!" ; }         
+        
+        else { $konto->Kontostand = $konto->Kontostand - $Betrag;
+        echo "Betrag: $Betrag wurde abgehoben. Neuer Kontostand: $konto->Kontostand";
+    }
+    }
+    function einzahlen(int $Betrag, Konto $konto) {
+    $konto->Kontostand = $konto->Kontostand + $Betrag;
+    echo "Betrag: $Betrag wurde eingezahlt. Neuer Kontostand: $konto->Kontostand";
+    }
+   
+    
+}
+?>
