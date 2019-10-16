@@ -1,0 +1,34 @@
+<?php
+
+//Verbindungsaufbau zur Datenbank
+try {
+    $pdo = new PDO (
+        'mysql:dbname=bestelldatenbank;host=localhost;charset=utf8',
+        'root', '' );
+}   catch ( PDOException $e ) {
+	die ( $e->getMessage () );
+}
+
+
+if ($stmt = $pdo->query ("select * from artikel")) {
+    $data = $stmt->fetchAll ();
+}
+    
+
+echo "<table>\n";
+echo "<tr><th>Artikelnummer</th><th>Artikelgruppe</th><th>" .
+     "<th>Artikelbezeichnung</th><th>Preis</th></tr>";
+    
+while ($row = $stmt -> fetch()) {
+    echo "<tr>";
+    foreach ($row as $key => $value) {
+        $value = htmlentities($value, ENT_QUOTES, "UTF-8", FALSE);  //anscheinend wichtig aber keine ahnung ???
+        echo "<td>$value&nbsp;</td>/n";
+    }
+    echo "</tr>";
+}
+echo "</table>\n";
+
+    
+
+?>
